@@ -4,6 +4,8 @@ description: Plan, implement, or improve purposeful motion in web interfaces. Us
 ---
 # Interface motion
 
+Motion principles in this skill are adapted in part from [Emil Kowalski's design-engineering skill](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng), then rewritten as framework-agnostic guidance.
+
 Use this skill when motion is part of the requested web interface work. First inspect the project's framework, existing motion tools, tokens, and nearby patterns. Preserve them unless there is a clear reason to change.
 
 ## Decide before animating
@@ -25,4 +27,24 @@ Use this skill when motion is part of the requested web interface work. First in
 
 Check the actual interaction when a browser or preview is readily available: entry, exit, repeated activation, interruption where relevant, narrow layouts, and reduced-motion behavior. If the animation's quality depends on timing or feel that cannot be judged from code, say what needs a visual check instead of claiming it is verified.
 
-For common patterns, consult [motion recipes](references/motion-recipes.md). For a term or interaction name, use `interface-vocabulary`. For explaining how an existing site implements an effect, use `explain-interface`.
+For common patterns, consult [motion recipes](references/motion-recipes.md). For a term or interaction name, use `interface-vocabulary`.
+
+## Examples
+
+Examples use a fictional e-commerce app (catalog, products, cart, and checkout) for consistency. This context is illustrative, not a requirement for projects using the skill.
+
+- **DON'T:** Animate unrelated properties with an unbounded transition:
+
+  ```css
+  .add-to-cart { transition: all 300ms; }
+  ```
+
+- **DO:** Transition the property that communicates the interaction and respect reduced motion:
+
+  ```css
+  .add-to-cart { transition: transform 150ms ease; }
+  .add-to-cart:active { transform: scale(0.97); }
+  @media (prefers-reduced-motion: reduce) {
+    .add-to-cart { transition: none; }
+  }
+  ```

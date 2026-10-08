@@ -11,3 +11,21 @@ When asked to suggest or refine a commit message:
 2. Write a concise Conventional Commit subject in imperative mood, without a final period. Keep it to 72 characters or fewer when practical.
 3. Use `type(scope): subject` when the scope adds useful context. Common types include `feat`, `fix`, `docs`, `refactor`, `test`, `build`, `ci`, and `chore`. Use `!` for breaking changes.
 4. Return the suggested message without committing.
+
+## Examples
+
+Examples use a fictional e-commerce app (catalog, products, cart, and checkout) for consistency. This context is illustrative, not a requirement for projects using the skill.
+
+- **DON'T:**
+
+  ```text
+  feat: update product page
+  ```
+
+- **DO:**
+
+  ```text
+  fix(cart): retain quantity when updating an item
+  ```
+
+  Use a specific subject like this only when it matches the inspected diff.

@@ -39,3 +39,32 @@ Use `programming-guidelines` for shared principles on scope, dependencies, and f
 - Inspect nearby code before introducing a pattern or dependency. Do not change strictness settings or add a library just to solve a local typing inconvenience.
 - Keep runtime validation separate from compile-time typing: TypeScript types disappear at runtime, so external data still needs validation appropriate to its risk.
 - Use framework- or runtime-specific guidance when available. This skill covers the shared TypeScript decisions, not framework architecture.
+
+## Examples
+
+Examples use a fictional e-commerce app (catalog, products, cart, and checkout) for consistency. This context is illustrative, not a requirement for projects using the skill.
+
+- **DON'T:** Silence uncertainty with `any`:
+
+  ```ts
+  const product: any = await response.json();
+  addToCart(product.id, product.price);
+  ```
+
+- **DO:** Keep the boundary unknown and narrow it before use:
+
+  ```ts
+  type Product = { id: string; price: number };
+
+  function isProduct(value: unknown): value is Product {
+    return (
+      typeof value === 'object' &&
+      value !== null &&
+      'id' in value && typeof value.id === 'string' &&
+      'price' in value && typeof value.price === 'number'
+    );
+  }
+
+  const payload: unknown = await response.json();
+  if (isProduct(payload)) addToCart(payload.id, payload.price);
+  ```

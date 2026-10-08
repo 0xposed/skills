@@ -1,5 +1,7 @@
 # Interface glossary
 
+Motion terminology in this glossary is adapted in part from [Emil Kowalski's animation-vocabulary skill](https://github.com/emilkowalski/skills/tree/main/skills/animation-vocabulary); the glossary has been expanded with UI, layout, and visual-effect terms.
+
 Use these terms as a shared vocabulary, not as rigid standards. Product teams and design systems sometimes use different names; describe the behavior when the label is ambiguous.
 
 ## UI components and patterns

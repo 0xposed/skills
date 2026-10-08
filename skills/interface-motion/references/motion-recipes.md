@@ -1,5 +1,7 @@
 # Motion recipes
 
+Adapted in part from the motion guidance in [Emil Kowalski's skills repository](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng); recipes have been rewritten and generalized.
+
 These are decision cues, not copy-paste prescriptions. Use the project's framework, component API, styles, and motion preferences. Check keyboard, touch, and reduced-motion behavior where relevant.
 
 - **Press feedback:** a subtle, quick state change can confirm activation. Do not make the user wait for it before the action takes effect.

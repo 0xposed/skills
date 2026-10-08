@@ -18,7 +18,7 @@ This repository contains the portable Codex skills maintained here. Keep machine
 Install the skills globally for Codex with the Vercel Skills CLI:
 
 ```sh
-npx skills add 0xposed/dotfiles --global --agent codex --skill '*' --yes
+npx skills add 0xposed/skills --global --agent codex --skill '*' --yes
 ```
 
 The Skills CLI accepts GitHub repositories as a source and supports global installation for Codex. To pull updates for installed skills, run `npx skills update`.
